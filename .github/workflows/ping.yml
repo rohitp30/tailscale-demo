@@ -15,9 +15,9 @@ jobs:
           tags: tag:ci
 
       - name: SSH Test
-        uses: appleboy/ssh-action@v1
+        uses: cross-the-world/ssh-pipeline@master
         with:
           host: ${{ secrets.ATLAS_HOST }}
-          username: ${{ secrets.ATLAS_USER }}
+          user: ${{ secrets.ATLAS_USER }}
           key: ${{ secrets.ATLAS_SSH_KEY }}
-          script: echo "hi from atlas-2"
+          cmds: echo "hi from atlas-2"
