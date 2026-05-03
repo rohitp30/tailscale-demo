@@ -22,5 +22,4 @@ jobs:
         with:
           host: ${{ secrets.ATLAS_HOST }}
           username: ${{ secrets.ATLAS_USER }}
-          key: ${{ secrets.ATLAS_SSH_KEY }}
           script: echo "hi from atlas-2"
