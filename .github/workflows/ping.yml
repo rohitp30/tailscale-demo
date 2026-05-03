@@ -14,10 +14,13 @@ jobs:
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
 
+      - name: Check Tailscale status
+        run: tailscale status
+
       - name: SSH Test
-        uses: cross-the-world/ssh-pipeline@master
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.ATLAS_HOST }}
-          user: ${{ secrets.ATLAS_USER }}
+          username: ${{ secrets.ATLAS_USER }}
           key: ${{ secrets.ATLAS_SSH_KEY }}
-          cmds: echo "hi from atlas-2"
+          script: echo "hi from atlas-2"
